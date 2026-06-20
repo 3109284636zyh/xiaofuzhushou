@@ -1,0 +1,17 @@
+<view class="container search-page">
+  <view class="card search-hero">
+    <view class="pill">全局搜索</view>
+    <view class="search-title">产品、知识、教程和历史记录一起搜</view>
+    <view class="search-row">
+      <input class="input-box search-input" value="{{keyword}}" placeholder="输入关键词" bindinput="onKeywordInput" confirm-type="search" bindconfirm="search" />
+      <button class="btn-primary search-button" loading="{{loading}}" bindtap="search">搜索</button>
+    </view>
+  </view>
+
+  <view wx:if="{{searched && results.length === 0}}" class="empty-state">没有找到相关内容，可以换个关键词试试</view>
+  <view wx:for="{{results}}" wx:key="targetId" class="card result-card" bindtap="openResult" data-item="{{item}}">
+    <view class="result-type">{{item.type}}</view>
+    <view class="list-title">{{item.title}}</view>
+    <view class="muted">{{item.summary}}</view>
+  </view>
+</view>

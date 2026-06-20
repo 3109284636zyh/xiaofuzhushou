@@ -1,0 +1,32 @@
+<view class="container assistant-page">
+  <view class="card hero-card">
+    <view class="pill">AI 建站导师</view>
+    <view class="page-title">把客户一句话拆成知识、回复和下一步</view>
+    <textarea class="input-box question" value="{{question}}" placeholder="粘贴客户问题，例如：做一个企业官网多少钱？" bindinput="onQuestionInput" />
+    <button class="btn-primary" loading="{{replyLoading}}" bindtap="generateReply">生成平台内安全回复</button>
+  </view>
+
+  <view wx:if="{{reply.text}}" class="card reply-card">
+    <view class="section-head">
+      <text>AI 回复</text>
+      <button size="mini" bindtap="copyReply">复制</button>
+    </view>
+    <view class="copy-text">{{reply.text}}</view>
+    <view wx:if="{{reply.fallback}}" class="muted">已使用安全兜底回复</view>
+  </view>
+
+  <view class="section-title">知识分类</view>
+  <scroll-view scroll-x class="category-scroll">
+    <view class="category-row">
+      <view wx:for="{{categories}}" wx:key="id" class="category-chip {{selectedCategoryId === item.id ? 'active' : ''}}" bindtap="selectCategory" data-id="{{item.id}}">{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="section-title">文章</view>
+  <view wx:if="{{filteredArticles.length === 0}}" class="empty-state">当前分类暂无文章</view>
+  <view wx:for="{{filteredArticles}}" wx:key="id" class="card article-card" bindtap="openArticle" data-id="{{item.id}}">
+    <view class="list-title">{{item.title}}</view>
+    <view class="muted">{{item.summary}}</view>
+    <view class="tags">{{item.tags}}</view>
+  </view>
+</view>

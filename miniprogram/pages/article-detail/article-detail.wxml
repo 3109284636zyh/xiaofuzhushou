@@ -1,0 +1,10 @@
+<view class="container detail-page">
+  <view wx:if="{{article}}" class="card article-panel">
+    <view class="pill">{{article.tags}}</view>
+    <view class="article-title">{{article.title}}</view>
+    <view class="muted article-summary">{{article.summary}}</view>
+    <view class="copy-text article-content">{{article.content}}</view>
+    <button class="btn-primary" bindtap="collectArticle">收藏这篇内容</button>
+  </view>
+  <view wx:else class="empty-state">正在加载知识内容</view>
+</view>

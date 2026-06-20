@@ -1,0 +1,20 @@
+<view class="container quote-page">
+  <view class="card form-card">
+    <view class="pill">智能报价</view>
+    <view class="page-title">把客户需求转成价格、周期和功能清单</view>
+    <textarea class="input-box textarea" value="{{form.demand}}" placeholder="客户需求，例如：企业官网，首页、产品、案例、联系表单" data-field="demand" bindinput="onInput" />
+    <input class="input-box" value="{{form.budget}}" placeholder="预算，例如：5000" data-field="budget" bindinput="onInput" />
+    <input class="input-box" value="{{form.deadline}}" placeholder="期望周期，例如：15天内" data-field="deadline" bindinput="onInput" />
+    <input class="input-box" value="{{form.productType}}" placeholder="类型，例如：website" data-field="productType" bindinput="onInput" />
+    <button class="btn-primary" loading="{{loading}}" bindtap="submit">生成报价</button>
+  </view>
+
+  <view wx:if="{{result}}" class="card result-card">
+    <view class="result-price">{{result.priceRange}}</view>
+    <view class="muted">预计 {{result.durationDays}} 天 · {{result.productType}}</view>
+    <view class="section-title">功能清单</view>
+    <view wx:for="{{result.features}}" wx:key="*this" class="feature-item">{{item}}</view>
+    <view class="copy-text summary">{{result.summary}}</view>
+    <button class="btn-primary" bindtap="copyQuote">复制报价</button>
+  </view>
+</view>

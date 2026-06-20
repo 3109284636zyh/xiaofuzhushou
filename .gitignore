@@ -1,0 +1,22 @@
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+
+# 微信开发者工具本地私有配置
+project.private.config.json
+
+# 本地/工具缓存
+.superpowers/
+.claude/
+
+# 构建产物
+dist/
+build/
+coverage/
+
+# 上传/临时文件
+uploads/
+tmp/
+temp/

@@ -1,0 +1,32 @@
+<view class="container mine-page">
+  <view class="card profile-card primary-gradient">
+    <view class="avatar">福</view>
+    <view>
+      <view class="profile-title">AI小福工作台</view>
+      <view class="profile-sub">无注册 · 无付费 · 后端安全托管 API</view>
+    </view>
+  </view>
+
+  <view class="section-title">配置状态</view>
+  <view class="card status-card">
+    <view class="status-row"><text>DeepSeek API</text><text class="pill">后端安全托管</text></view>
+    <view class="status-row"><text>风控机制</text><text class="pill">已启用</text></view>
+    <view class="status-row"><text>请求域名</text><text>wfr.ccvo.top</text></view>
+  </view>
+
+  <view class="section-title">常用入口</view>
+  <view class="menu-list card">
+    <view class="menu-item" bindtap="openFavorites">收藏内容</view>
+    <view class="menu-item" bindtap="openHistory">历史记录</view>
+    <view class="menu-item">AI 配置</view>
+    <view class="menu-item">API 管理</view>
+    <view class="menu-item">更新日志：V3.0 MVP</view>
+    <view class="menu-item">联系客服：请在平台内继续沟通</view>
+  </view>
+
+  <view wx:if="{{listTitle}}" class="section-title">{{listTitle}}</view>
+  <view wx:for="{{records}}" wx:key="id" class="card record-card">
+    <view class="list-title">{{item.titleSnapshot || item.title}}</view>
+    <view class="muted">{{item.recordType}} · {{item.createdAt}}</view>
+  </view>
+</view>

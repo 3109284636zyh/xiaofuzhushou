@@ -1,0 +1,16 @@
+.hero { padding: 38rpx; overflow: hidden; position: relative; }
+.hero:after { content: ''; position: absolute; right: -60rpx; top: -60rpx; width: 220rpx; height: 220rpx; border-radius: 50%; background: rgba(255,255,255,.18); }
+.hero-pill { background: rgba(255,255,255,.22); color: #fff; }
+.hero-title { margin-top: 28rpx; font-size: 46rpx; line-height: 1.2; font-weight: 900; letter-spacing: -2rpx; }
+.hero-sub { margin-top: 18rpx; opacity: .85; font-size: 26rpx; }
+.search-card { margin: 24rpx 0; color: #667085; }
+.quick-grid { margin-bottom: 8rpx; }
+.quick-card { min-height: 168rpx; }
+.quick-icon { font-size: 38rpx; }
+.quick-title { margin: 12rpx 0 6rpx; font-weight: 800; }
+.stat { text-align: center; }
+.stat text { display: block; font-size: 42rpx; font-weight: 900; color: #1677FF; }
+.stat view { color: #667085; font-size: 24rpx; margin-top: 6rpx; }
+.list-card { margin-bottom: 16rpx; display: flex; justify-content: space-between; gap: 20rpx; align-items: center; }
+.list-title { font-weight: 800; margin-bottom: 8rpx; }
+.price { color: #1677FF; font-weight: 800; white-space: nowrap; }

@@ -1,0 +1,39 @@
+<view class="container home-page">
+  <view class="hero card primary-gradient">
+    <view class="pill hero-pill">平台内建站接单助手</view>
+    <view class="hero-title">AI小福今天帮你把客户问题变成报价和方案</view>
+    <view class="hero-sub">DeepSeek 后端托管 · 风控提示词已启用</view>
+  </view>
+
+  <view class="search-card card" bindtap="goSearch">搜索产品、教程、客户问题</view>
+
+  <view class="quick-grid grid-2">
+    <view wx:for="{{quickActions}}" wx:key="key" class="quick-card card" bindtap="handleQuick" data-key="{{item.key}}">
+      <view class="quick-icon">{{item.icon}}</view>
+      <view class="quick-title">{{item.title}}</view>
+      <view class="muted">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">今日数据</view>
+  <view class="stats grid-3">
+    <view class="card stat"><text>{{summary.stats.todayUsage}}</text><view>使用次数</view></view>
+    <view class="card stat"><text>{{summary.stats.todayReplies}}</text><view>回复生成</view></view>
+    <view class="card stat"><text>{{summary.stats.todayDeals}}</text><view>成交客户</view></view>
+  </view>
+
+  <view class="section-title">热卖产品</view>
+  <view wx:for="{{products}}" wx:key="id" class="card list-card">
+    <view><view class="list-title">{{item.name}}</view><view class="muted">{{item.description}}</view></view>
+    <view class="price">￥{{item.priceMin}}-{{item.priceMax}}</view>
+  </view>
+
+  <view class="section-title">最新教程</view>
+  <view wx:for="{{tutorials}}" wx:key="id" class="card list-card">
+    <view><view class="list-title">{{item.title}}</view><view class="muted">{{item.summary}}</view></view>
+  </view>
+
+  <view class="section-title">最近使用</view>
+  <view wx:if="{{recent.length === 0}}" class="empty-state">暂无记录，先生成一条 AI 回复吧</view>
+  <view wx:for="{{recent}}" wx:key="id" class="card list-card"><view>{{item.titleSnapshot || item.title}}</view><view class="muted">{{item.recordType}}</view></view>
+</view>

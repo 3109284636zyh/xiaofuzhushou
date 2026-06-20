@@ -1,0 +1,7 @@
+.search-hero { margin-bottom: 24rpx; }
+.search-title { margin: 18rpx 0 22rpx; font-size: 40rpx; line-height: 1.22; font-weight: 900; }
+.search-row { display: flex; gap: 14rpx; align-items: center; }
+.search-input { flex: 1; min-height: 82rpx; }
+.search-button { width: 160rpx; }
+.result-card { margin-bottom: 16rpx; }
+.result-type { display: inline-flex; padding: 6rpx 14rpx; border-radius: 999rpx; background: rgba(108,99,255,.10); color: #6C63FF; font-size: 22rpx; margin-bottom: 12rpx; }

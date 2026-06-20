@@ -1,0 +1,4 @@
+.article-panel { padding: 36rpx; }
+.article-title { margin: 22rpx 0 16rpx; font-size: 44rpx; line-height: 1.22; font-weight: 900; }
+.article-summary { margin-bottom: 28rpx; }
+.article-content { margin-bottom: 32rpx; }
