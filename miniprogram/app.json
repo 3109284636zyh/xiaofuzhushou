@@ -14,7 +14,8 @@
     "navigationBarTitleText": "AI小福",
     "navigationBarBackgroundColor": "#1677FF",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#EEF5FF"
+    "backgroundColor": "#EEF5FF",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#667085",
@@ -31,6 +32,13 @@
   },
   "style": "v2",
   "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy"
+    }
+  },
   "lazyCodeLoading": "requiredComponents",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json"
