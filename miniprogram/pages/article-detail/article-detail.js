@@ -1,13 +1,19 @@
 const { get, post } = require('../../utils/request');
+const app = getApp();
 
 Page({
   data: {
+    topSpacerHeight: 132,
     id: null,
     article: null
   },
   onLoad(options) {
+    this.setLayoutMetrics();
     this.setData({ id: Number(options.id) });
     this.loadArticle();
+  },
+  setLayoutMetrics() {
+    this.setData({ topSpacerHeight: app.getTopSpacerHeight() });
   },
   async loadArticle() {
     try {

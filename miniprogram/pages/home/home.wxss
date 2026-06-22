@@ -267,3 +267,8 @@
   font-size: 25rpx;
   text-align: center;
 }
+
+.stat-icon { margin: 0 auto 10rpx; }
+.list-left-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 52rpx; height: 52rpx; border-radius: 18rpx; background: rgba(22,119,255,.09); }
+.empty-card .ui-icon { opacity: .74; }
+.price-chip .ui-icon { width: 22rpx; height: 22rpx; }

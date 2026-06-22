@@ -1,32 +1,10 @@
-<view class="container assistant-page">
-  <view class="card hero-card">
-    <view class="pill">AI 建站导师</view>
-    <view class="page-title">把客户一句话拆成知识、回复和下一步</view>
-    <textarea class="input-box question" value="{{question}}" placeholder="粘贴客户问题，例如：做一个企业官网多少钱？" bindinput="onQuestionInput" />
-    <button class="btn-primary" loading="{{replyLoading}}" bindtap="generateReply">生成平台内安全回复</button>
-  </view>
-
-  <view wx:if="{{reply.text}}" class="card reply-card">
-    <view class="section-head">
-      <text>AI 回复</text>
-      <button size="mini" bindtap="copyReply">复制</button>
-    </view>
-    <view class="copy-text">{{reply.text}}</view>
-    <view wx:if="{{reply.fallback}}" class="muted">已使用安全兜底回复</view>
-  </view>
-
-  <view class="section-title">知识分类</view>
-  <scroll-view scroll-x class="category-scroll">
-    <view class="category-row">
-      <view wx:for="{{categories}}" wx:key="id" class="category-chip {{selectedCategoryId === item.id ? 'active' : ''}}" bindtap="selectCategory" data-id="{{item.id}}">{{item.name}}</view>
-    </view>
-  </scroll-view>
-
-  <view class="section-title">文章</view>
-  <view wx:if="{{filteredArticles.length === 0}}" class="empty-state">当前分类暂无文章</view>
-  <view wx:for="{{filteredArticles}}" wx:key="id" class="card article-card" bindtap="openArticle" data-id="{{item.id}}">
-    <view class="list-title">{{item.title}}</view>
-    <view class="muted">{{item.summary}}</view>
-    <view class="tags">{{item.tags}}</view>
-  </view>
+<view class="safe-page container assistant-page">
+  <view class="page-safe-top" style="height: {{topSpacerHeight}}rpx;"></view>
+  <view class="card hero-card"><view class="pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/ai.png" mode="aspectFit" /><text>AI 建站导师</text></view><view class="page-title">把客户一句话拆成知识、回复和下一步</view><view class="input-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/message.png" mode="aspectFit" /><textarea class="question" value="{{question}}" placeholder="粘贴客户问题，例如：做一个企业官网多少钱？" bindinput="onQuestionInput" /></view><button class="btn-primary" loading="{{replyLoading}}" bindtap="generateReply"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/lightning.png" mode="aspectFit" /><text>生成平台内安全回复</text></view></button></view>
+  <view wx:if="{{reply.text}}" class="card reply-card"><view class="section-head"><view class="title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/reply.png" mode="aspectFit" /><text>AI 回复</text></view><button size="mini" bindtap="copyReply"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/copy.png" mode="aspectFit" /><text>复制</text></view></button></view><view class="copy-text">{{reply.text}}</view><view wx:if="{{reply.fallback}}" class="muted title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/shield.png" mode="aspectFit" /><text>已使用安全兜底回复</text></view></view>
+  <view class="section-title title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/category.png" mode="aspectFit" /><text>知识分类</text></view>
+  <scroll-view scroll-x class="category-scroll"><view class="category-row"><view wx:for="{{categories}}" wx:key="id" class="category-chip {{selectedCategoryId === item.id ? 'active' : ''}}" bindtap="selectCategory" data-id="{{item.id}}"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/category.png" mode="aspectFit" /><text>{{item.name}}</text></view></view></view></scroll-view>
+  <view class="section-title title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/article.png" mode="aspectFit" /><text>文章</text></view>
+  <view wx:if="{{filteredArticles.length === 0}}" class="empty-state title-with-icon"><image class="ui-icon ui-icon-md" src="/assets/icons/ui/empty.png" mode="aspectFit" /><text>当前分类暂无文章</text></view>
+  <view wx:for="{{filteredArticles}}" wx:key="id" class="card article-card row-with-icon" bindtap="openArticle" data-id="{{item.id}}"><view class="ui-icon-badge"><image class="ui-icon ui-icon-md" src="/assets/icons/ui/article.png" mode="aspectFit" /></view><view class="icon-label"><view class="list-title">{{item.title}}</view><view class="muted">{{item.summary}}</view><view class="tags title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/bookmark.png" mode="aspectFit" /><text>{{item.tags}}</text></view></view></view>
 </view>

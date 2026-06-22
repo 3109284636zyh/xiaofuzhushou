@@ -53,12 +53,15 @@ const menu = [
   { path: '/knowledge', label: '知识库', icon: '▣' },
   { path: '/tutorials', label: '教程', icon: '▤' },
   { path: '/scripts', label: '销售话术', icon: '✦' },
-  { path: '/orders', label: '订单', icon: '●' },
-  { path: '/ai-config', label: 'AI 配置', icon: '✧' }
+  { path: '/orders', label: '订单', icon: '●' }
 ];
 
+const hiddenTitles = {
+  '/ai-config': 'AI 配置'
+};
+
 const isLoginPage = computed(() => route.path === '/login');
-const currentTitle = computed(() => menu.find((item) => item.path === route.path)?.label || 'AI小福管理后台');
+const currentTitle = computed(() => menu.find((item) => item.path === route.path)?.label || hiddenTitles[route.path] || 'AI小福管理后台');
 
 function logout() {
   clearToken();

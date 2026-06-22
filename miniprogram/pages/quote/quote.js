@@ -1,7 +1,9 @@
 const { post } = require('../../utils/request');
+const app = getApp();
 
 Page({
   data: {
+    topSpacerHeight: 132,
     loading: false,
     form: {
       demand: '',
@@ -10,6 +12,12 @@ Page({
       productType: 'website'
     },
     result: null
+  },
+  onLoad() {
+    this.setLayoutMetrics();
+  },
+  setLayoutMetrics() {
+    this.setData({ topSpacerHeight: app.getTopSpacerHeight() });
   },
   onInput(event) {
     const field = event.currentTarget.dataset.field;

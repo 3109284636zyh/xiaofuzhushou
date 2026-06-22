@@ -6,20 +6,20 @@
       <view class="hero-orb hero-orb-large"></view>
       <view class="hero-orb hero-orb-small"></view>
       <view class="hero-copy">
-        <view class="hero-pill">平台内接单助手</view>
+        <view class="hero-pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/ai.png" mode="aspectFit" /><text>平台内接单助手</text></view>
         <view class="hero-title">今天帮你快速生成报价和方案</view>
         <view class="hero-sub">DeepSeek 后端托管 · 平台沟通风控已启用</view>
       </view>
     </view>
 
     <view class="search-entry" bindtap="goSearch">
-      <view class="search-icon">⌕</view>
+      <view class="search-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/search.png" mode="aspectFit" /></view>
       <view class="search-placeholder">搜索产品、教程、客户问题</view>
     </view>
 
     <view class="quick-grid">
       <view wx:for="{{quickActions}}" wx:key="key" class="quick-card" bindtap="handleQuick" data-key="{{item.key}}">
-        <view class="quick-icon-wrap"><text class="quick-icon">{{item.icon}}</text></view>
+        <view class="quick-icon-wrap"><image class="ui-icon ui-icon-md" src="{{item.iconPath}}" mode="aspectFit" /></view>
         <view class="quick-text">
           <view class="quick-title">{{item.title}}</view>
           <view class="quick-desc">{{item.desc}}</view>
@@ -27,48 +27,23 @@
       </view>
     </view>
 
-    <view class="section-heading">今日数据</view>
+    <view class="section-heading title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/stats.png" mode="aspectFit" /><text>今日数据</text></view>
     <view class="stats-panel">
-      <view class="stat-item">
-        <text class="stat-number">{{summary.stats.todayUsage}}</text>
-        <view class="stat-label">使用次数</view>
-      </view>
+      <view class="stat-item"><image class="ui-icon ui-icon-sm stat-icon" src="/assets/icons/ui/stats.png" mode="aspectFit" /><text class="stat-number">{{summary.stats.todayUsage}}</text><view class="stat-label">使用次数</view></view>
       <view class="stat-divider"></view>
-      <view class="stat-item">
-        <text class="stat-number">{{summary.stats.todayReplies}}</text>
-        <view class="stat-label">回复生成</view>
-      </view>
+      <view class="stat-item"><image class="ui-icon ui-icon-sm stat-icon" src="/assets/icons/ui/reply.png" mode="aspectFit" /><text class="stat-number">{{summary.stats.todayReplies}}</text><view class="stat-label">回复生成</view></view>
       <view class="stat-divider"></view>
-      <view class="stat-item">
-        <text class="stat-number">{{summary.stats.todayDeals}}</text>
-        <view class="stat-label">成交客户</view>
-      </view>
+      <view class="stat-item"><image class="ui-icon ui-icon-sm stat-icon" src="/assets/icons/ui/trend.png" mode="aspectFit" /><text class="stat-number">{{summary.stats.todayDeals}}</text><view class="stat-label">成交客户</view></view>
     </view>
 
-    <view class="section-heading">热卖产品</view>
-    <view wx:for="{{products}}" wx:key="id" class="list-card product-card">
-      <view class="list-main">
-        <view class="list-title">{{item.name}}</view>
-        <view class="list-desc">{{item.description}}</view>
-      </view>
-      <view class="price-chip">￥{{item.priceMin}}-{{item.priceMax}}</view>
-    </view>
+    <view class="section-heading title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/product.png" mode="aspectFit" /><text>热卖产品</text></view>
+    <view wx:for="{{products}}" wx:key="id" class="list-card product-card"><view class="list-left-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/product.png" mode="aspectFit" /></view><view class="list-main"><view class="list-title">{{item.name}}</view><view class="list-desc">{{item.description}}</view></view><view class="price-chip title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/price.png" mode="aspectFit" /><text>￥{{item.priceMin}}-{{item.priceMax}}</text></view></view>
 
-    <view class="section-heading">最新教程</view>
-    <view wx:for="{{tutorials}}" wx:key="id" class="list-card">
-      <view class="list-main">
-        <view class="list-title">{{item.title}}</view>
-        <view class="list-desc">{{item.summary}}</view>
-      </view>
-    </view>
+    <view class="section-heading title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/article.png" mode="aspectFit" /><text>最新教程</text></view>
+    <view wx:for="{{tutorials}}" wx:key="id" class="list-card"><view class="list-left-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/article.png" mode="aspectFit" /></view><view class="list-main"><view class="list-title">{{item.title}}</view><view class="list-desc">{{item.summary}}</view></view></view>
 
-    <view class="section-heading">最近使用</view>
-    <view wx:if="{{recent.length === 0}}" class="empty-card">暂无记录，先生成一条 AI 回复吧</view>
-    <view wx:for="{{recent}}" wx:key="id" class="list-card recent-card">
-      <view class="list-main">
-        <view class="list-title">{{item.titleSnapshot || item.title}}</view>
-        <view class="list-desc">{{item.recordType}}</view>
-      </view>
-    </view>
+    <view class="section-heading title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/history.png" mode="aspectFit" /><text>最近使用</text></view>
+    <view wx:if="{{recent.length === 0}}" class="empty-card title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/empty.png" mode="aspectFit" /><text>暂无记录，先生成一条 AI 回复吧</text></view>
+    <view wx:for="{{recent}}" wx:key="id" class="list-card recent-card"><view class="list-left-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/history.png" mode="aspectFit" /></view><view class="list-main"><view class="list-title">{{item.titleSnapshot || item.title}}</view><view class="list-desc">{{item.recordType}}</view></view></view>
   </view>
 </view>

@@ -1,26 +1,9 @@
-<view class="container toolbox-page">
-  <view class="card primary-gradient top-card">
-    <view class="pill hero-pill">九宫格建站工具</view>
-    <view class="tool-title">报价、方案、分析和检测入口一次放齐</view>
-  </view>
-  <view class="tool-grid">
-    <view wx:for="{{tools}}" wx:key="key" class="card tool-card" bindtap="openTool" data-key="{{item.key}}">
-      <view class="tool-icon">{{item.icon}}</view>
-      <view class="tool-name">{{item.title}}</view>
-      <view class="muted">{{item.desc}}</view>
-    </view>
-  </view>
-  <view class="section-title">智能接单</view>
-  <view class="smart-list">
-    <view wx:for="{{smartActions}}" wx:key="key" class="card smart-card" bindtap="runSmartAction" data-key="{{item.key}}">
-      <view class="tool-name">{{item.title}}</view>
-      <view class="muted">{{item.desc}}</view>
-    </view>
-  </view>
+<view class="safe-page container toolbox-page">
+  <view class="page-safe-top" style="height: {{topSpacerHeight}}rpx;"></view>
 
-  <view wx:if="{{result}}" class="card result-card">
-    <view class="section-head"><text>{{result.title}}</text><button size="mini" bindtap="clearResult">收起</button></view>
-    <view>{{result.summary}}</view>
-    <view wx:for="{{result.items}}" wx:key="label" class="result-row"><text>{{item.label}}</text><text>{{item.value}}</text></view>
-  </view>
+  <view class="card primary-gradient top-card"><view class="pill hero-pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/toolbox.png" mode="aspectFit" /><text>九宫格建站工具</text></view><view class="tool-title">报价、方案、分析和检测入口一次放齐</view></view>
+  <view class="tool-grid"><view wx:for="{{tools}}" wx:key="key" class="card tool-card" bindtap="openTool" data-key="{{item.key}}"><view class="tool-icon ui-icon-badge"><image class="ui-icon ui-icon-lg" src="{{item.iconPath}}" mode="aspectFit" /></view><view class="tool-name">{{item.title}}</view><view class="muted">{{item.desc}}</view></view></view>
+  <view class="section-title title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/ai.png" mode="aspectFit" /><text>智能接单</text></view>
+  <view class="smart-list"><view wx:for="{{smartActions}}" wx:key="key" class="card smart-card row-with-icon" bindtap="runSmartAction" data-key="{{item.key}}"><view class="ui-icon-badge"><image class="ui-icon ui-icon-md" src="{{item.iconPath}}" mode="aspectFit" /></view><view class="icon-label"><view class="tool-name">{{item.title}}</view><view class="muted">{{item.desc}}</view></view></view></view>
+  <view wx:if="{{result}}" class="card result-card"><view class="section-head"><view class="title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/document.png" mode="aspectFit" /><text>{{result.title}}</text></view><button size="mini" bindtap="clearResult">收起</button></view><view>{{result.summary}}</view><view wx:for="{{result.items}}" wx:key="label" class="result-row"><view class="row-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/check.png" mode="aspectFit" /><text>{{item.label}}</text></view><text>{{item.value}}</text></view></view>
 </view>

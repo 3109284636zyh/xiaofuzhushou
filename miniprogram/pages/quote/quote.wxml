@@ -1,20 +1,5 @@
-<view class="container quote-page">
-  <view class="card form-card">
-    <view class="pill">智能报价</view>
-    <view class="page-title">把客户需求转成价格、周期和功能清单</view>
-    <textarea class="input-box textarea" value="{{form.demand}}" placeholder="客户需求，例如：企业官网，首页、产品、案例、联系表单" data-field="demand" bindinput="onInput" />
-    <input class="input-box" value="{{form.budget}}" placeholder="预算，例如：5000" data-field="budget" bindinput="onInput" />
-    <input class="input-box" value="{{form.deadline}}" placeholder="期望周期，例如：15天内" data-field="deadline" bindinput="onInput" />
-    <input class="input-box" value="{{form.productType}}" placeholder="类型，例如：website" data-field="productType" bindinput="onInput" />
-    <button class="btn-primary" loading="{{loading}}" bindtap="submit">生成报价</button>
-  </view>
-
-  <view wx:if="{{result}}" class="card result-card">
-    <view class="result-price">{{result.priceRange}}</view>
-    <view class="muted">预计 {{result.durationDays}} 天 · {{result.productType}}</view>
-    <view class="section-title">功能清单</view>
-    <view wx:for="{{result.features}}" wx:key="*this" class="feature-item">{{item}}</view>
-    <view class="copy-text summary">{{result.summary}}</view>
-    <button class="btn-primary" bindtap="copyQuote">复制报价</button>
-  </view>
+<view class="safe-page container quote-page">
+  <view class="page-safe-top" style="height: {{topSpacerHeight}}rpx;"></view>
+  <view class="card form-card"><view class="pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/quote.png" mode="aspectFit" /><text>智能报价</text></view><view class="page-title">把客户需求转成价格、周期和功能清单</view><view class="field-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/message.png" mode="aspectFit" /><textarea class="textarea" value="{{form.demand}}" placeholder="客户需求，例如：企业官网，首页、产品、案例、联系表单" data-field="demand" bindinput="onInput" /></view><view class="field-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/budget.png" mode="aspectFit" /><input class="field-input" value="{{form.budget}}" placeholder="预算，例如：5000" data-field="budget" bindinput="onInput" /></view><view class="field-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/clock.png" mode="aspectFit" /><input class="field-input" value="{{form.deadline}}" placeholder="期望周期，例如：15天内" data-field="deadline" bindinput="onInput" /></view><view class="field-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/product.png" mode="aspectFit" /><input class="field-input" value="{{form.productType}}" placeholder="类型，例如：website" data-field="productType" bindinput="onInput" /></view><button class="btn-primary" loading="{{loading}}" bindtap="submit"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/calculator.png" mode="aspectFit" /><text>生成报价</text></view></button></view>
+  <view wx:if="{{result}}" class="card result-card"><view class="result-price title-with-icon"><image class="ui-icon ui-icon-md" src="/assets/icons/ui/price.png" mode="aspectFit" /><text>{{result.priceRange}}</text></view><view class="muted title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/clock.png" mode="aspectFit" /><text>预计 {{result.durationDays}} 天 · {{result.productType}}</text></view><view class="section-title title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/feature.png" mode="aspectFit" /><text>功能清单</text></view><view wx:for="{{result.features}}" wx:key="*this" class="feature-item row-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/check.png" mode="aspectFit" /><text>{{item}}</text></view><view class="copy-text summary row-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/document.png" mode="aspectFit" /><text>{{result.summary}}</text></view><button class="btn-primary" bindtap="copyQuote"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/copy.png" mode="aspectFit" /><text>复制报价</text></view></button></view>
 </view>

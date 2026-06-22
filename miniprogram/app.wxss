@@ -1,5 +1,8 @@
 page { min-height: 100vh; background: linear-gradient(135deg, #F8FBFF 0%, #EEF5FF 52%, #F4F1FF 100%); color: #172033; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
 .container { padding: 28rpx; }
+.safe-page { min-height: 100vh; box-sizing: border-box; padding-bottom: calc(56rpx + env(safe-area-inset-bottom)); }
+.safe-page.container { padding: 0 28rpx calc(56rpx + env(safe-area-inset-bottom)); }
+.page-safe-top { width: 100%; flex-shrink: 0; }
 .card { background: rgba(255,255,255,.86); border: 1rpx solid rgba(255,255,255,.82); border-radius: 20px; padding: 28rpx; box-shadow: 0 18rpx 60rpx rgba(22,65,130,.10); }
 .glass { background: rgba(255,255,255,.68); backdrop-filter: blur(20px); border: 1rpx solid rgba(255,255,255,.8); }
 .primary-gradient { background: linear-gradient(135deg, #1677FF, #6C63FF); color: #fff; }
@@ -12,3 +15,13 @@ page { min-height: 100vh; background: linear-gradient(135deg, #F8FBFF 0%, #EEF5F
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18rpx; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18rpx; }
 .copy-text { user-select: text; white-space: pre-wrap; line-height: 1.7; }
+.ui-icon { display: block; width: 32rpx; height: 32rpx; flex-shrink: 0; }
+.ui-icon-sm { width: 26rpx; height: 26rpx; }
+.ui-icon-md { width: 34rpx; height: 34rpx; }
+.ui-icon-lg { width: 48rpx; height: 48rpx; }
+.ui-icon-badge { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 58rpx; height: 58rpx; border-radius: 20rpx; background: linear-gradient(135deg, rgba(22,119,255,.13), rgba(108,99,255,.13)); }
+.ui-icon-badge-white { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 58rpx; height: 58rpx; border-radius: 20rpx; background: rgba(255,255,255,.22); }
+.title-with-icon { display: flex; align-items: center; gap: 12rpx; }
+.row-with-icon { display: flex; align-items: center; gap: 14rpx; min-width: 0; }
+.button-content { display: flex; align-items: center; justify-content: center; gap: 10rpx; }
+.icon-label { min-width: 0; }

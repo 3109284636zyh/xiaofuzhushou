@@ -1,7 +1,7 @@
 import { apiDelete, apiGet, apiPost, apiPut, setToken } from './client.js';
 
-export async function login(password) {
-  const data = await apiPost('/auth/login', { password });
+export async function login(username, password) {
+  const data = await apiPost('/auth/login', { username, password });
   setToken(data.token);
   return data;
 }

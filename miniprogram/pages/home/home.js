@@ -8,10 +8,10 @@ Page({
     tutorials: [],
     recent: [],
     quickActions: [
-      { key: 'ai', title: 'AI智能回复', desc: '生成平台内安全话术', icon: '✦' },
-      { key: 'quote', title: '智能报价', desc: '估算价格和周期', icon: '￥' },
-      { key: 'knowledge', title: '建站百科', desc: '查建站知识', icon: '书' },
-      { key: 'product', title: '热卖产品', desc: '查看主推服务', icon: '火' }
+      { key: 'ai', title: 'AI智能回复', desc: '生成平台内安全话术', iconPath: '/assets/icons/ui/ai.png' },
+      { key: 'quote', title: '智能报价', desc: '估算价格和周期', iconPath: '/assets/icons/ui/quote.png' },
+      { key: 'knowledge', title: '建站百科', desc: '查建站知识', iconPath: '/assets/icons/ui/knowledge.png' },
+      { key: 'product', title: '热卖产品', desc: '查看主推服务', iconPath: '/assets/icons/ui/product.png' }
     ]
   },
 

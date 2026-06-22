@@ -63,13 +63,14 @@
 
 ### POST /auth/login
 
-后台固定密码登录。
+后台固定账号密码登录。
 
 请求体：
 
 ```json
 {
-  "password": "zyh123456"
+  "username": "admin",
+  "password": "aw3109284636"
 }
 ```
 
@@ -82,7 +83,8 @@
   "data": {
     "token": "<jwt>",
     "expiresIn": 1800,
-    "adminName": "AI小福管理员"
+    "adminName": "AI小福管理员",
+    "username": "admin"
   }
 }
 ```
@@ -92,7 +94,7 @@
 ```json
 {
   "code": 40301,
-  "message": "密码错误",
+  "message": "账号或密码错误",
   "data": null
 }
 ```
