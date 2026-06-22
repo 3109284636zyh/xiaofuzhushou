@@ -1,7 +1,9 @@
 const { get, post } = require('../../utils/request');
+const app = getApp();
 
 Page({
   data: {
+    topSpacerHeight: 132,
     categories: [],
     articles: [],
     filteredArticles: [],
@@ -10,7 +12,13 @@ Page({
     reply: null,
     replyLoading: false
   },
-  onLoad() { this.loadKnowledge(); },
+  onLoad() {
+    this.setLayoutMetrics();
+    this.loadKnowledge();
+  },
+  setLayoutMetrics() {
+    this.setData({ topSpacerHeight: app.getTopSpacerHeight() });
+  },
   async loadKnowledge() {
     try {
       const [categories, articles] = await Promise.all([

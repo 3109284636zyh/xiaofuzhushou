@@ -2,3 +2,8 @@
 .article-title { margin: 22rpx 0 16rpx; font-size: 44rpx; line-height: 1.22; font-weight: 900; }
 .article-summary { margin-bottom: 28rpx; }
 .article-content { margin-bottom: 32rpx; }
+.article-title { align-items: flex-start; }
+.article-title .ui-icon { margin-top: 8rpx; }
+.article-summary { align-items: flex-start; }
+.article-content { align-items: flex-start; }
+.article-content .ui-icon { margin-top: 8rpx; }

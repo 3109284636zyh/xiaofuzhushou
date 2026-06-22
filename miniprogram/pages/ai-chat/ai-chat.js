@@ -1,10 +1,18 @@
 const { post } = require('../../utils/request');
+const app = getApp();
 
 Page({
   data: {
+    topSpacerHeight: 132,
     prompt: '',
     reply: null,
     loading: false
+  },
+  onLoad() {
+    this.setLayoutMetrics();
+  },
+  setLayoutMetrics() {
+    this.setData({ topSpacerHeight: app.getTopSpacerHeight() });
   },
   onPromptInput(event) {
     this.setData({ prompt: event.detail.value });

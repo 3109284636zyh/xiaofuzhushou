@@ -1,10 +1,5 @@
-<view class="container detail-page">
-  <view wx:if="{{article}}" class="card article-panel">
-    <view class="pill">{{article.tags}}</view>
-    <view class="article-title">{{article.title}}</view>
-    <view class="muted article-summary">{{article.summary}}</view>
-    <view class="copy-text article-content">{{article.content}}</view>
-    <button class="btn-primary" bindtap="collectArticle">收藏这篇内容</button>
-  </view>
-  <view wx:else class="empty-state">正在加载知识内容</view>
+<view class="safe-page container detail-page">
+  <view class="page-safe-top" style="height: {{topSpacerHeight}}rpx;"></view>
+  <view wx:if="{{article}}" class="card article-panel"><view class="pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/category.png" mode="aspectFit" /><text>{{article.tags}}</text></view><view class="article-title title-with-icon"><image class="ui-icon ui-icon-md" src="/assets/icons/ui/article.png" mode="aspectFit" /><text>{{article.title}}</text></view><view class="muted article-summary row-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/document.png" mode="aspectFit" /><text>{{article.summary}}</text></view><view class="copy-text article-content row-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/knowledge.png" mode="aspectFit" /><text>{{article.content}}</text></view><button class="btn-primary" bindtap="collectArticle"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/bookmark.png" mode="aspectFit" /><text>收藏这篇内容</text></view></button></view>
+  <view wx:else class="empty-state title-with-icon"><image class="ui-icon ui-icon-md" src="/assets/icons/ui/empty.png" mode="aspectFit" /><text>正在加载知识内容</text></view>
 </view>

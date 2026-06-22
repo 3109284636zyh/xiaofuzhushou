@@ -14,7 +14,8 @@
     "navigationBarTitleText": "AI小福",
     "navigationBarBackgroundColor": "#1677FF",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#EEF5FF"
+    "backgroundColor": "#EEF5FF",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#667085",
@@ -22,16 +23,14 @@
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [
-      { "pagePath": "pages/home/home", "text": "首页" },
-      { "pagePath": "pages/assistant/assistant", "text": "建站助手" },
-      { "pagePath": "pages/toolbox/toolbox", "text": "工具箱" },
-      { "pagePath": "pages/search/search", "text": "搜索" },
-      { "pagePath": "pages/mine/mine", "text": "我的" }
+      { "pagePath": "pages/home/home", "text": "首页", "iconPath": "assets/icons/tab/home.png", "selectedIconPath": "assets/icons/tab/home-active.png" },
+      { "pagePath": "pages/assistant/assistant", "text": "建站助手", "iconPath": "assets/icons/tab/assistant.png", "selectedIconPath": "assets/icons/tab/assistant-active.png" },
+      { "pagePath": "pages/toolbox/toolbox", "text": "工具箱", "iconPath": "assets/icons/tab/toolbox.png", "selectedIconPath": "assets/icons/tab/toolbox-active.png" },
+      { "pagePath": "pages/search/search", "text": "搜索", "iconPath": "assets/icons/tab/search.png", "selectedIconPath": "assets/icons/tab/search-active.png" },
+      { "pagePath": "pages/mine/mine", "text": "我的", "iconPath": "assets/icons/tab/mine.png", "selectedIconPath": "assets/icons/tab/mine-active.png" }
     ]
   },
   "style": "v2",
-  "renderer": "skyline",
   "lazyCodeLoading": "requiredComponents",
-  "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json"
 }

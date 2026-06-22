@@ -1,4 +1,5 @@
-export const ADMIN_PASSWORD = 'zyh123456';
+export const ADMIN_USERNAME = 'admin';
+export const ADMIN_PASSWORD = 'aw3109284636';
 export const JWT_EXPIRES_IN = '30m';
 export const RISK_SYSTEM_PROMPT = `你是 AI小福，一个用于电商平台建站接单场景的客服助手。
 回复必须适合在闲鱼、淘宝、拼多多等平台内沟通。

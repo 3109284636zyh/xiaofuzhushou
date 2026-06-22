@@ -1,15 +1,6 @@
-<view class="container ai-chat-page">
-  <view class="card chat-card primary-gradient">
-    <view class="pill hero-pill">平台内安全回复</view>
-    <view class="chat-title">把客户问题改写成可复制的成交回复</view>
-  </view>
-  <view class="card form-card">
-    <textarea class="input-box textarea" value="{{prompt}}" placeholder="粘贴客户问题或聊天上下文" bindinput="onPromptInput" />
-    <button class="btn-primary" loading="{{loading}}" bindtap="submit">生成回复</button>
-  </view>
-  <view wx:if="{{reply}}" class="card reply-card">
-    <view class="section-head"><text>可复制回复</text><button size="mini" bindtap="copyReply">复制</button></view>
-    <view class="copy-text">{{reply.text}}</view>
-    <view wx:if="{{reply.fallback}}" class="fallback-hint">DeepSeek 未返回安全内容，已启用兜底话术。</view>
-  </view>
+<view class="safe-page container ai-chat-page">
+  <view class="page-safe-top" style="height: {{topSpacerHeight}}rpx;"></view>
+  <view class="card chat-card primary-gradient"><view class="pill hero-pill title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/shield.png" mode="aspectFit" /><text>平台内安全回复</text></view><view class="chat-title">把客户问题改写成可复制的成交回复</view></view>
+  <view class="card form-card"><view class="input-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/message.png" mode="aspectFit" /><textarea class="textarea" value="{{prompt}}" placeholder="粘贴客户问题或聊天上下文" bindinput="onPromptInput" /></view><button class="btn-primary" loading="{{loading}}" bindtap="submit"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/send.png" mode="aspectFit" /><text>生成回复</text></view></button></view>
+  <view wx:if="{{reply}}" class="card reply-card"><view class="section-head"><view class="title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/reply.png" mode="aspectFit" /><text>可复制回复</text></view><button size="mini" bindtap="copyReply"><view class="button-content"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/copy.png" mode="aspectFit" /><text>复制</text></view></button></view><view class="copy-text">{{reply.text}}</view><view wx:if="{{reply.fallback}}" class="fallback-hint title-with-icon"><image class="ui-icon ui-icon-sm" src="/assets/icons/ui/warning.png" mode="aspectFit" /><text>DeepSeek 未返回安全内容，已启用兜底话术。</text></view></view>
 </view>

@@ -7,3 +7,7 @@
 .page-chip { margin-right: 10rpx; margin-bottom: 10rpx; }
 .feature-item { padding: 16rpx 0; border-bottom: 1rpx solid rgba(22,119,255,.10); }
 .proposal { margin: 24rpx 0; }
+.field-with-icon { display: flex; align-items: flex-start; gap: 12rpx; padding: 20rpx; border: 1rpx solid rgba(22,119,255,.14); border-radius: 18rpx; background: #fff; box-sizing: border-box; }
+.field-input { flex: 1; min-height: 44rpx; }
+.field-with-icon .textarea { flex: 1; height: 160rpx; padding: 0; background: transparent; border: 0; }
+.proposal { align-items: flex-start; }

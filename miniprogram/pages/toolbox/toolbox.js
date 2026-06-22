@@ -1,23 +1,31 @@
 const { post } = require('../../utils/request');
+const app = getApp();
 
 Page({
   data: {
+    topSpacerHeight: 132,
     result: null,
     tools: [
-      { key: 'domain', title: '域名查询', desc: '预留接口', icon: '域' },
-      { key: 'whois', title: 'Whois查询', desc: '预留接口', icon: 'W' },
-      { key: 'speed', title: '网站测速', desc: '预留接口', icon: '速' },
-      { key: 'ssl', title: 'SSL检测', desc: '预留接口', icon: '锁' },
-      { key: 'icp', title: '备案查询', desc: '预留接口', icon: '备' },
-      { key: 'quote', title: '智能报价', desc: '价格周期', icon: '￥' },
-      { key: 'seo', title: 'SEO检测', desc: '预留接口', icon: '搜' },
-      { key: 'analysis', title: '网站分析', desc: '预留接口', icon: '析' },
-      { key: 'plan', title: 'AI方案生成', desc: '页面功能', icon: '案' }
+      { key: 'domain', title: '域名查询', desc: '预留接口', iconPath: '/assets/icons/ui/domain.png' },
+      { key: 'whois', title: 'Whois查询', desc: '预留接口', iconPath: '/assets/icons/ui/whois.png' },
+      { key: 'speed', title: '网站测速', desc: '预留接口', iconPath: '/assets/icons/ui/speed.png' },
+      { key: 'ssl', title: 'SSL检测', desc: '预留接口', iconPath: '/assets/icons/ui/lock.png' },
+      { key: 'icp', title: '备案查询', desc: '预留接口', iconPath: '/assets/icons/ui/document.png' },
+      { key: 'quote', title: '智能报价', desc: '价格周期', iconPath: '/assets/icons/ui/quote.png' },
+      { key: 'seo', title: 'SEO检测', desc: '预留接口', iconPath: '/assets/icons/ui/seo.png' },
+      { key: 'analysis', title: '网站分析', desc: '预留接口', iconPath: '/assets/icons/ui/stats.png' },
+      { key: 'plan', title: 'AI方案生成', desc: '页面功能', iconPath: '/assets/icons/ui/plan.png' }
     ],
     smartActions: [
-      { key: 'customer', title: '客户需求分析', desc: '判断 A/B/C 意向' },
-      { key: 'script', title: '销售话术推荐', desc: '按场景给出平台内话术' }
+      { key: 'customer', title: '客户需求分析', desc: '判断 A/B/C 意向', iconPath: '/assets/icons/ui/user.png' },
+      { key: 'script', title: '销售话术推荐', desc: '按场景给出平台内话术', iconPath: '/assets/icons/ui/chat.png' }
     ]
+  },
+  onLoad() {
+    this.setLayoutMetrics();
+  },
+  setLayoutMetrics() {
+    this.setData({ topSpacerHeight: app.getTopSpacerHeight() });
   },
   async openTool(event) {
     const key = event.currentTarget.dataset.key;

@@ -47,7 +47,7 @@ test('GET /api/health returns ok payload', async () => {
   }
 });
 
-test('POST /api/auth/login returns jwt for fixed password', async () => {
+test('POST /api/auth/login returns jwt for fixed admin account and password', async () => {
   const server = await startTestServer();
 
   try {
@@ -57,7 +57,8 @@ test('POST /api/auth/login returns jwt for fixed password', async () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        password: 'zyh123456'
+        username: 'admin',
+        password: 'aw3109284636'
       })
     });
     const body = await response.json();
@@ -66,10 +67,40 @@ test('POST /api/auth/login returns jwt for fixed password', async () => {
     assert.equal(body.code, 0);
     assert.equal(body.data.expiresIn, 1800);
     assert.equal(body.data.adminName, 'AI小福管理员');
+    assert.equal(body.data.username, 'admin');
     assert.equal(typeof body.data.token, 'string');
 
     const decoded = jwt.verify(body.data.token, env.jwtSecret);
     assert.equal(decoded.role, 'admin');
+    assert.equal(decoded.username, 'admin');
+    assert.equal(decoded.adminName, 'AI小福管理员');
+  } finally {
+    await server.close();
+  }
+});
+
+test('POST /api/auth/login rejects wrong username', async () => {
+  const server = await startTestServer();
+
+  try {
+    const response = await fetch(`${server.baseUrl}/api/auth/login`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: 'other-admin',
+        password: 'aw3109284636'
+      })
+    });
+    const body = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.deepEqual(body, {
+      code: 40301,
+      message: '账号或密码错误',
+      data: null
+    });
   } finally {
     await server.close();
   }
@@ -85,6 +116,7 @@ test('POST /api/auth/login rejects wrong password', async () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
+        username: 'admin',
         password: 'bad-password'
       })
     });
@@ -93,7 +125,7 @@ test('POST /api/auth/login rejects wrong password', async () => {
     assert.equal(response.status, 200);
     assert.deepEqual(body, {
       code: 40301,
-      message: '密码错误',
+      message: '账号或密码错误',
       data: null
     });
   } finally {
@@ -129,7 +161,8 @@ test('public knowledge endpoints hide unpublished admin articles', async () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        password: 'zyh123456'
+        username: 'admin',
+        password: 'aw3109284636'
       })
     });
     const loginBody = await loginResponse.json();
